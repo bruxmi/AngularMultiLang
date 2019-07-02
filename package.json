@@ -25,11 +25,13 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "@ngx-translate/i18n-polyfill": "^1.0.0",
     "bootstrap": "^4.3.1",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "ngx-i18nsupport": "^0.17.1",
     "rxjs": "~6.3.3",
+    "web-animations-js": "^2.3.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
