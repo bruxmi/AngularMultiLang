@@ -13,6 +13,7 @@
         <div class="col-md-10">
             <h2>{{ 'HELLO' | translate }}</h2>
             <cvb-datepicker [(ngModel)]="selectedDate"></cvb-datepicker>
+            <img [src]="imageBlobUrl | safeHtml" *ngIf="imageBlobUrl"  width="300" height="300"/>
         </div>
     </div>
 </div>
