@@ -15,7 +15,7 @@ import { FormsModule }   from '@angular/forms';
 registerLocaleData(localeDe, 'de');
 registerLocaleData(localeEn, 'en');
 
-class CustomLoader implements TranslateLoader {
+export class CustomLoader implements TranslateLoader {
 
   getTranslation(lang: string): Observable<any> {
     return of({ KEY: 'value' });

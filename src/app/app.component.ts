@@ -12,11 +12,15 @@ export class AppComponent {
   title = 'Enpure';
   selectedDate: Date;
   currentLang: string;
+  languageService: LanguageService;
+  httpClient: HttpClient;
 
-  constructor(private languageService: LanguageService,
-    private httpClient: HttpClient) {
+  constructor(languageService: LanguageService,
+    httpClient: HttpClient) {
+    this.httpClient = httpClient;
+    this.languageService = languageService;
     this.languageService.setupLanguages();
-    this.selectedDate = new Date(2018,1,1);
+    this.selectedDate = new Date(2018, 1, 1);
 
     this.languageService.currentLang$.subscribe(a => {
       this.currentLang = a.toUpperCase();

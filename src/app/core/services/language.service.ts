@@ -3,20 +3,40 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core'
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import * as moment from 'moment';
 
+export function translateFactory(translate: TranslateService) {
+
+  let lang = localStorage.getItem('lang')
+
+  if (!lang) {
+    lang = translate.getBrowserLang()
+    localStorage.setItem('lang', lang)
+  }
+
+  translate.use(lang)
+  return new LanguageService(translate)
+}
+
+
+// @Injectable({
+//   providedIn: 'root',
+//   useFactory: (translate: TranslateService) => {
+
+//     let lang = localStorage.getItem('lang')
+
+//     if (!lang) {
+//       lang = translate.getBrowserLang()
+//       localStorage.setItem('lang', lang)
+//     }
+
+//     translate.use(lang)
+//     return new LanguageService(translate)
+//   },
+//   deps: [TranslateService]
+// })
+
 @Injectable({
   providedIn: 'root',
-  useFactory: (translate: TranslateService) => {
-
-    let lang = localStorage.getItem('lang')
-
-    if (!lang) {
-      lang = translate.getBrowserLang()
-      localStorage.setItem('lang', lang)
-    }
-
-    translate.use(lang)
-    return new LanguageService(translate)
-  },
+  useFactory: translateFactory,
   deps: [TranslateService]
 })
 export class LanguageService {
@@ -43,7 +63,7 @@ export class LanguageService {
       LANG_DE: 'Deutsch',
       LANG_EN: 'Englisch',
       LANGUAGES: 'Sprache',
-      CHOOSE_DATE : 'Datum auswählen'
+      CHOOSE_DATE: 'Datum auswählen'
     });
 
     this.translate.setTranslation('en', {
@@ -51,7 +71,7 @@ export class LanguageService {
       LANG_DE: 'German',
       LANG_EN: 'English',
       LANGUAGES: 'Language',
-      CHOOSE_DATE : 'Select date'
+      CHOOSE_DATE: 'Select date'
     });
   }
 
