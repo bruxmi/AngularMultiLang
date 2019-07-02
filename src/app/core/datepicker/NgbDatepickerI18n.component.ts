@@ -42,7 +42,8 @@ export class NgbdDatepickerI18n implements ControlValueAccessor, OnInit, OnDestr
     onChange = (date?: Date) => { };
 
     // Function to call when the date picker is touched
-    onTouched = () => { };
+    onTouched = () => { 
+    };
 
     writeValue(value: Date) {
         if (!value) return;
@@ -72,5 +73,6 @@ export class NgbdDatepickerI18n implements ControlValueAccessor, OnInit, OnDestr
     onDateSelect(value: any) {
         var date = new Date(value.year, value.month - 1, value.day);
         this.onChange(date);
+        this.onTouched();
     }
 }
