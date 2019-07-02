@@ -29,9 +29,9 @@ class CustomLoader implements TranslateLoader {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule.forRoot(),  
     HttpClientModule,
     FormsModule,
-    CoreModule.forRoot(),  
     NgbModule,
     TranslateModule.forRoot({
       loader: {
