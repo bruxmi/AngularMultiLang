@@ -12,6 +12,8 @@ import localeEn from '@angular/common/locales/en';
 import { CoreModule } from './core/core.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule }   from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 registerLocaleData(localeDe, 'de');
 registerLocaleData(localeEn, 'en');
 
@@ -39,6 +41,8 @@ class CustomLoader implements TranslateLoader {
         deps: [HttpClient]
       }
     }),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
   ],
   providers: [
   ],

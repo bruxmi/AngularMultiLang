@@ -12,7 +12,29 @@
         </div>
         <div class="col-md-10">
             <h2>{{ 'HELLO' | translate }}</h2>
-            <cvb-datepicker [(ngModel)]="selectedDate"></cvb-datepicker>
+            <!-- <cvb-datepicker [(ngModel)]="selectedDate"></cvb-datepicker> -->
+
+
+
+            <div class="input-group">
+                <!-- <input class="form-control" 
+                        name="dp" 
+                        placeholder="{{ 'CHOOSE_DATE' | translate }}" 
+                        [(ngModel)]="selectedDate"
+                        ngbDatepicker (change)="onDateChange($event.target.value)" 
+                        (dateSelect)="onDateSelect($event)"
+                        #d="ngbDatepicker"
+                       /> -->
+                <input type="text" 
+                placeholder="Daterangepicker" 
+                class="form-control" 
+                [(ngModel)]="selectedDate" 
+                bsDatepicker 
+                #d="bsDatepicker"/>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"> [[]]</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
